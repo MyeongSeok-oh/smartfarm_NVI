@@ -286,20 +286,36 @@ class CropAnomalyPipeline:
 # ============================================================
 
 if __name__ == "__main__":
+    from sklearn.model_selection import train_test_split
+    
     print("=" * 50)
     print("정상 데이터 로드")
     print("=" * 50)
     normal_df = load_folder_data('data/정상')
     
+    # === Train/Test 분리 (80/20) ===
+    train_df, test_df = train_test_split(normal_df, test_size=0.2, random_state=42)
+    
+    print(f"학습 데이터: {len(train_df)}개")
+    print(f"테스트 데이터: {len(test_df)}개")
+    
+    # === 학습 (80%만 사용) ===
     print("\n" + "=" * 50)
-    print("모델 학습 (시간 정보 포함)")
+    print("모델 학습")
     print("=" * 50)
-    print(f"Features: 온도, 습도, CO2, hour_sin, hour_cos")
     
     pipeline = CropAnomalyPipeline()
-    pipeline.train(normal_df)
+    pipeline.train(train_df)  # 80%로만 학습
     
     pipeline.save('models')
+    
+    # === 정상 테스트 데이터 검증 (20%) ===
+    print("\n" + "=" * 50)
+    print("정상 테스트 데이터 검증 (학습에 안 쓴 20%)")
+    print("=" * 50)
+    
+    result = pipeline.predict(test_df)
+    print(f"이상 비율: {result['anomaly_ratio']*100:.1f}% (낮을수록 좋음)")
     
     print("\n" + "=" * 50)
     print("학습 완료!")
