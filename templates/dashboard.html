@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div id="top-bar">
+        <div id="left-section">
+            <span id="home-icon" onclick="changeView('status')">🏠</span>
+            <span class="menu-item" onclick="changeView('status')">현재 상황</span>
+            <span class="menu-item" onclick="changeView('growth')">생육</span>
+            <span class="menu-item" onclick="changeView('disease')">병충해</span>
+            <span class="menu-item" onclick="changeView('device')">설정</span>
+        </div>
+
+        <div id="right-section">
+            <span id="live-clock"></span>
+            <a id="logout-btn" href="/logout">로그아웃</a>
+        </div>
+    </div>
+
+    <!-- 메인 화면 영역 -->
+    <div id="main-content">
+        <div id="content-status" class="content-view">
+            <div id="current-status-box">
+                <h2>현재 상황</h2>
+            </div>
+
+            <div id="main-layout">
+                <div id="image-box">
+                    <img id="cam-image" src="/static/images/cam1.jpg"
+                         style="width: 100%; border-radius: 8px;">
+                </div>
+                <div id="log-box">
+                    <h3>로그</h3>
+                    <div id="log-list">
+                        <!-- 로그 -->
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div id="content-growth" class="content-view" style="display:none;">생육 관련 화면</div>
+        <div id="content-disease" class="content-view" style="display:none;">병충해 관련 화면</div>
+        <div id="content-device" class="content-view" style="display:none;">기기 설정 화면</div>
+    </div>
+
+    <script src="/static/js/dashboard_ui.js"></script>
+</body>
+</html>
