@@ -1,0 +1,8 @@
+# 딸기 잎 세그멘테이션 데이터셋
+path: C:\Users\mung0\OneDrive\바탕 화면\smartfarm\agrigotchi-main\app\datasets
+train: images/train
+# val: images/val
+
+# Classes
+nc: 2
+names: ['healthy', 'diseased']  # 0: 정상, 1: 병해
