@@ -1,7 +1,22 @@
-.venv/ 
-__pycache__/ 
-*.pyc 
-models/ 
-data/ 
-epoch30.pt 
-*.pt 
+# 학습된 모델 (용량 큰 파일)
+*.h5
+*.keras
+*.onnx
+*.pt
+*.pth
+
+# 데이터 파일
+*.csv
+*.xlsx
+data/
+datasets/
+
+# 임시/캐시
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.log
+
+# IDE 설정
+.vscode/
+.idea/

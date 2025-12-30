@@ -220,7 +220,6 @@ class LSTMAutoencoderPredictor:
         
         if self.error_stats:
             summary["error_stats"] = self.error_stats
-        dhaudtjr5948!
         
         return {
             "data_path": data_path if isinstance(data_path, str) else "dataframe",

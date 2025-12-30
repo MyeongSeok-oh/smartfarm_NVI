@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+# <<<<<<< HEAD
 """
 AI 모델 추론 API
 - leaf_predict: 잎 세그멘테이션 (YOLO)
